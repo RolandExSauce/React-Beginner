@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import { useState, useContext } from 'react';
+import Child from './Child'
 import './App.css';
+import { ThemeContext } from './context/ThemeContext';
+
 
 function App() {
+
+
+  const { setMode  } = useContext(ThemeContext);
+
+
+  //TODOs left:
+
+  // useCallback, useMemo, useReducer, custom hooks
+  //for fetching: tanstack query/axios
+  //Styling: UI frameworks, e.g. Chakra UI
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+    <button onClick={() => { setMode((prev) =>  prev === 'dark' ? 'light' : 'dark'  ) } }   >Toggle System Mode </button>
+    <Child />
     </div>
   );
 }
-
 export default App;
